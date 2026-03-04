@@ -19,3 +19,9 @@ Route::get('/', function () {
 
 
 Route::resource('members', App\Http\Controllers\memberController::class);
+
+
+Route::resource('courts', App\Http\Controllers\courtController::class);
+
+
+Route::resource('bookings', App\Http\Controllers\bookingController::class);

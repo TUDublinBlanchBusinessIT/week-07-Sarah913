@@ -13,34 +13,23 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        <!-- Bootstrap 5 Navbar -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-          <div class="container-fluid">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href=https://laravel.com/docs>Laravel Documentation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href=https://laracasts.com/>Laravel Video Tutorials</a>
-              </li>
+        <body> <nav class="navbar navbar-default navbar-static-top">
+           <ul class="nav navbar-nav">
+             <li><a href="{{ route('members.index') }}">Member List</a></li> 
+             <li><a href="{{ route('members.create') }}">New Member</a></li> 
+             <li><a href="{{ route('bookings.index') }}">Booking List</a></li> 
             </ul>
-          </div>
-        </nav>
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
+           </nav>
+            <div id="page-content-wrapper">
+               <div class="container-fluid"> 
                 <div class="row">
-                    <!-- Well for left side of the page (to compensate for widescreen) -->
-                    <div class="col-lg-2"></div>
-                    <!-- Slot for content from Lower Level views with sections called 'content' pulled in here -->
-                    <div class="col-lg-8"> @yield('content') </div>
-                    <!-- Well for right side of the page (to compensate for widescreen) -->
-                    <div class="col-lg-2"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Webpack mix npm generated -->
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <script src="{{asset('js/app.js')}}"></script>
-        @stack('js_scripts')
+                   <div class="col-lg-2"></div> 
+                   <div class="col-lg-8">
+                     @yield('content') 
+                    </div>
+                     <div class="col-lg-2"></div>
+                     </div>
+                     </div>
+                     </div>
     </body>
 </html>
