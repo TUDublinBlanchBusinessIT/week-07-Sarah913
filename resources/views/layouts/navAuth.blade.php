@@ -1,5 +1,5 @@
 <ul class="navbar-nav text-white">
-    @if(Auth: :guest())
+    @if(Auth::guest())
     <li>
         <a href="{{route('register')}}">Register
             <span class="glyphicon glyphicon-pencil"></span>

@@ -69,5 +69,10 @@ class member extends Model
         'deleted_at' => 'nullable'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class,'userid','id');
+        }
+
     
 }
