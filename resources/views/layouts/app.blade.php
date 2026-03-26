@@ -13,6 +13,8 @@
         <!-- Bootstrap 5 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
     </head>
 
     <body>
@@ -27,6 +29,21 @@
                 <a class="nav-link" href={{ route('members.index')}}>Members List</a>
               </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+              @if(Auth::check())
+              @if(Auth::user()->hasRole('System Admin'))
+              @include('layouts.adminmenu')
+              @endif
+              <li><a href="{!! route('logout') !!}"><span
+              class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              @else
+              <li><a href="{!! route('login') !!}"><span
+              class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a href="{!! route('register') !!}"><span
+              class="glyphicon glyphicon-user"></span> Register</a></li>
+              @endif
+            </ul>
+
             @include('layouts.navAuth')
           </div>
         </nav>
