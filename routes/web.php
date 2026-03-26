@@ -52,3 +52,18 @@ Route::get('/roles/assignpermissions/{id}','App\Http\Controllers\RolesController
 
 Route::patch('/roles/updatepermissions/{id}','App\Http\Controllers\RolesController@updatePermissions')->name("roles.permissionsupdate");
 
+
+
+Route::delete('/bookings/{booking}','App\Http\Controllers\BookingController@destroy')->name('bookings.destroy')->middleware('permission:DeleteBooking');
+Route::delete('/members/{member}','App\Http\Controllers\MemberController@destroy')->name('members.destroy')->middleware('permission:DeleteMember');
+
+Route::group(['middleware' => ['permission:Create NewMember']], function () {
+Route::get('/members/create','App\Http\Controllers\MemberController@create')->name('members.create');
+Route::post('/members/store','App\Http\Controllers\MemberController@create')->name('members.store');
+});
+
+Route::group(['middleware' => ['role:System Admin']], function () {
+Route::resource('roles','App\Http\Controllers\rolesController');
+Route::resource('permissions','App\Http\Controllers\permissionsController');
+Route::resource('users','App\Http\Controllers\usersController');
+});
